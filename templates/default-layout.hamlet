@@ -1,16 +1,1 @@
-
-<!-- Static navbar -->
-<nav .navbar.navbar-default.navbar-static-top>
-    <div .container>
-        <center>
-            <a .header-link href="@{HomeR}">What We Like
-
-<!-- Page Contents -->
-
 ^{widget}
-
-<!-- Footer -->
-<footer .footer>
-    <div .container>
-        <p .text-muted>
-            #{appCopyright $ appSettings master}
