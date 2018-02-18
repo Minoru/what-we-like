@@ -5,6 +5,19 @@ by a pre-defined group of users. If you're running an online community that has
 some presense on DeviantArt, you might want to create such a gallery to show
 off works that your community members like.
 
+# How it works
+
+Each DeviantArt user has an Atom feed with all his/her favourites. The feed's
+URL looks like this:
+https://backend.deviantart.com/rss.xml?q=favby%3AMinoru2048%2F70385256&type=deviation.
+The URL contains both the nickname and user's numeric ID. The only way to get
+this URL (as far as I know, at least) is to request
+https://minoru2048.deviantart.com/favourites/ and to find `<link
+rel="alternate" …>` in the page's `<head>`.
+
+Those feeds are fetched periodically, parsed and stuffed into the DB. The
+website simply presents latest entries.
+
 ## Haskell Setup
 
 1. If you haven't already, [install Stack](https://haskell-lang.org/get-started)
