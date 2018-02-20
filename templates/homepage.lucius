@@ -12,7 +12,15 @@ li {
     height: 100px;
 }
 
-.carousel-item {
+.max-fit {
     max-width: 100vw;
     max-height: 100vh;
+}
+
+.item-contents {
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

@@ -1,28 +1,31 @@
-<div .container>
+<div .container-fluid>
     <!-- Starting
         ================================================== -->
     <div #carouselExampleSlidesOnly .carousel .slide data-ride="carousel">
         <div .carousel-inner>
             <div .carousel-item .active>
-                <!--
-                Bust sketch's
-                katherine_olenic
-                -->
+                <div .item-contents>
+                    <!--
+                    Bust sketch's
+                    katherine_olenic
+                    -->
 
-                <img .d-block src="https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg" alt="Bust sketch's">
-
-            <div .carousel-item>
-                <!--
-                Princess and cannibal
-                irenetall
-                -->
-
-                <img .d-block src="https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg" alt="Princess and cannibal">
+                    <img .max-fit src="https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg" alt="Bust sketch's">
 
             <div .carousel-item>
-                <!--
-                Wedding
-                katherine_olenic
-                -->
+                <div .item-contents>
+                    <!--
+                    Princess and cannibal
+                    irenetall
+                    -->
 
-                <img .d-block src="https://pre00.deviantart.net/064d/th/pre/i/2018/019/4/f/wedding_by_katherine_olenic-dc0ezwh.jpg" alt="Wedding">
+                    <img .max-fit src="https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg" alt="Princess and cannibal">
+
+            <div .carousel-item>
+                <div .item-contents>
+                    <!--
+                    Wedding
+                    katherine_olenic
+                    -->
+
+                    <img .max-fit src="https://pre00.deviantart.net/064d/th/pre/i/2018/019/4/f/wedding_by_katherine_olenic-dc0ezwh.jpg" alt="Wedding">
