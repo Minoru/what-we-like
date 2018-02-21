@@ -1,31 +1,13 @@
-<div .container-fluid>
-    <!-- Starting
-        ================================================== -->
-    <div #carouselExampleSlidesOnly .carousel .slide data-ride="carousel">
-        <div .carousel-inner>
-            <div .carousel-item .active>
-                <div .item-contents>
-                    <!--
-                    Bust sketch's
-                    katherine_olenic
-                    -->
+<div #fullpage>
+    <div .section #section0>
+        <div .intro .image-container>
+            <img .max-fit src="https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg" />
 
-                    <img .max-fit src="https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg" alt="Bust sketch's">
+    <div .section #section1>
+        <div .intro .image-container>
+            <img .max-fit src="https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg" />
 
-            <div .carousel-item>
-                <div .item-contents>
-                    <!--
-                    Princess and cannibal
-                    irenetall
-                    -->
+    <div .section #section2>
+        <div .intro .image-container>
+            <img .max-fit src="https://pre00.deviantart.net/064d/th/pre/i/2018/019/4/f/wedding_by_katherine_olenic-dc0ezwh.jpg" />
 
-                    <img .max-fit src="https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg" alt="Princess and cannibal">
-
-            <div .carousel-item>
-                <div .item-contents>
-                    <!--
-                    Wedding
-                    katherine_olenic
-                    -->
-
-                    <img .max-fit src="https://pre00.deviantart.net/064d/th/pre/i/2018/019/4/f/wedding_by_katherine_olenic-dc0ezwh.jpg" alt="Wedding">
