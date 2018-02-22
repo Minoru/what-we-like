@@ -4,13 +4,13 @@
 
     <div .section>
         <div .intro .image-container>
-            <img .max-fit src="https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg" />
+            <img .max-fit data-adaptive-background src="@{StaticR img_bust_sketch_s_by_katherine_olenic_dbz8fjy_jpg}" />
 
     <div .section>
         <div .intro .image-container>
-            <img .max-fit src="https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg" />
+            <img .max-fit data-adaptive-background src="@{StaticR img_princess_and_cannibal_by_irenetall_dc393kz_jpg}" />
 
     <div .section>
         <div .intro .image-container>
-            <img .max-fit src="https://pre00.deviantart.net/064d/th/pre/i/2018/019/4/f/wedding_by_katherine_olenic-dc0ezwh.jpg" />
+            <img .max-fit data-adaptive-background src="@{StaticR img_wedding_by_katherine_olenic_dc0ezwh_jpg}" />
 
