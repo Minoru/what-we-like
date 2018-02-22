@@ -18,6 +18,17 @@ rel="alternate" …>` in the page's `<head>`.
 Those feeds are fetched periodically, parsed and stuffed into the DB. The
 website simply presents latest entries.
 
+DeviantArt doesn't enable Cross-Origin Resource Sharing, so we cache all images
+on your server. You have to set the size of the cache, and we'll delete older
+images as new ones arrive. This also means you shouldn't link to images hosted
+on your servers—eventually they'll be gone, and your links will break. Give
+credit to the original creators—link directly to their Deviations instead!
+
+Instead of missing images, we might want to serve a placeholder saying that the
+image is gone. We could provide more info if we kept information on all
+entries, but that would lead to unbounded DB growth—not a good thing. So dumb
+placeholder it is.
+
 ## Haskell Setup
 
 1. If you haven't already, [install Stack](https://haskell-lang.org/get-started)
