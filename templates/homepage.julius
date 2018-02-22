@@ -1,4 +1,6 @@
 jQuery(document).ready(function($) {
     $("#fullpage").fullpage();
-    $.adaptiveBackground.run();
+    $.adaptiveBackground.run({
+        parent: "div.section"
+    });
 })
