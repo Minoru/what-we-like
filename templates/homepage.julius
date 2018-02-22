@@ -1,5 +1,3 @@
 jQuery(document).ready(function($) {
-    $("#fullpage").fullpage({
-        sectionsColor:['#8535d8', '#e8e8e8','#aa2919','#a2aebb']
-    });
+    $("#fullpage").fullpage();
 })
