@@ -1,6 +1,9 @@
 <div #fullpage>
     <div .section>
-        <h1>Welcome
+        <h1>Добро пожаловать в нашу галерею!
+        <p .lead>Здесь собраны картинки с DeviantArt, понравившиеся участникам конференции <a href="xmpp:drawing@conference.jabber.ru" class="text-primary">drawing@conference.jabber.ru</a>.
+        <p>Листать можно скроллом, пробелом или кнопками вверх/вниз. По любой из картинок можно кликнуть — страничка соответствующего deviation откроется в новой вкладке.
+        <p><b>Приятного просмотра!</b>
 
     <div .section>
         <div .intro .image-container>
