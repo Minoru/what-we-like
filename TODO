@@ -1,0 +1,5 @@
+* Create a favicon
+* Design a proper page404
+* Return HTTP Code "Gone" for images that were cached but were since evicted
+  from the cache (this situation will be easy to detect if we use monotonically
+  increasing numbers for image filenames)
