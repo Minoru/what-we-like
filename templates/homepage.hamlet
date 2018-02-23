@@ -8,18 +8,8 @@
         <p>Листать можно скроллом, пробелом или кнопками вверх/вниз. По любой из картинок можно кликнуть — страничка соответствующего deviation откроется в новой вкладке.
         <p><b>Приятного просмотра!</b>
 
-    <div .section>
-        <div .intro .image-container>
-            <a href="https://katherine-olenic.deviantart.com/art/Bust-sketch-s-724307902" target="_blank">
-                <img .max-fit data-adaptive-background src="@{StaticR img_bust_sketch_s_by_katherine_olenic_dbz8fjy_jpg}" />
-
-    <div .section>
-        <div .intro .image-container>
-            <a href="https://irenetall.deviantart.com/art/Princess-and-cannibal-731057507" target="_blank">
-                <img .max-fit data-adaptive-background src="@{StaticR img_princess_and_cannibal_by_irenetall_dc393kz_jpg}" />
-
-    <div .section>
-        <div .intro .image-container>
-            <a href="https://katherine-olenic.deviantart.com/art/Wedding-726293825" target="_blank">
-                <img .max-fit data-adaptive-background src="@{StaticR img_wedding_by_katherine_olenic_dc0ezwh_jpg}" />
-
+    $forall Entity deviationId (Deviation link) <- deviations
+        <div .section>
+            <div .intro .image-container>
+                <a href="#{link}" target="_blank">
+                    <img .max-fit data-adaptive-background src="/static/img/#{fromSqlKey deviationId}.jpg" />

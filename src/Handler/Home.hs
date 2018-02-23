@@ -7,6 +7,8 @@ module Handler.Home where
 
 import Import
 
+import Database.Persist.Sql (fromSqlKey)
+
 -- Define our data that will be used for creating the form.
 data FileForm = FileForm
     { fileInfo :: FileInfo
@@ -22,6 +24,7 @@ data FileForm = FileForm
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
 getHomeR = do
+    deviations <- runDB $ selectList [] [Asc DeviationId]
     defaultLayout $ do
         setTitle "What We Like"
         $(widgetFile "homepage")
