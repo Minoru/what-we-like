@@ -1,5 +1,5 @@
 <div #fullpage>
-    <div .section>
+    <div .section .text-center style="background-color: #c4a9fb;">
         <h1>Добро пожаловать в нашу галерею!
         <p .lead>Здесь собраны картинки с DeviantArt, понравившиеся участникам конференции <a href="xmpp:drawing@conference.jabber.ru" class="text-primary">drawing@conference.jabber.ru</a>.
         <p>Листать можно скроллом, пробелом или кнопками вверх/вниз. По любой из картинок можно кликнуть — страничка соответствующего deviation откроется в новой вкладке.
