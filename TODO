@@ -3,3 +3,8 @@
 * Return HTTP Code "Gone" for images that were cached but were since evicted
   from the cache (this situation will be easy to detect if we use monotonically
   increasing numbers for image filenames)
+* Strip the site down before GitHub release:
+    * remove unnecessary dependencies
+    * clean up the config
+    * remove all code I don't need
+    * revise comments in the code and configs—are they relevant to the project?
