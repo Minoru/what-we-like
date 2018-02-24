@@ -37,6 +37,7 @@ import Network.Wai.Middleware.RequestLogger (Destination (Logger),
 import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
 import System.Directory                     (createDirectoryIfMissing)
+import Control.Concurrent                   (forkIO)
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
@@ -44,6 +45,8 @@ import Handler.Common
 import Handler.Home
 import Handler.Comment
 import Handler.Profile
+
+import FeedFetcher
 
 -- This line actually creates our YesodDispatch instance. It is the second half
 -- of the call to mkYesodData which occurs in Foundation.hs. Please see the
@@ -161,6 +164,8 @@ appMain = do
 
     -- Generate a WAI Application from the foundation
     app <- makeApplication foundation
+
+    void $ forkIO $ feedFetcher (appConnPool foundation)
 
     -- Run the application with Warp
     runSettings (warpSettings foundation) app
