@@ -12,4 +12,4 @@
         <div .section>
             <div .intro .image-container>
                 <a href="#{link}" target="_blank">
-                    <img .max-fit data-adaptive-background src="/static/img/#{fromSqlKey deviationId}.jpg" />
+                    <img .max-fit data-adaptive-background src="/previews/#{fromSqlKey deviationId}.jpg" />
