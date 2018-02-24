@@ -8,3 +8,5 @@
     * clean up the config
     * remove all code I don't need
     * revise comments in the code and configs—are they relevant to the project?
+* Learn to filter out things that don't contain an image, like "Switching to
+  HTTPS" announcement in my favourites
