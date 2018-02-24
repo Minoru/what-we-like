@@ -12,10 +12,10 @@ import Model
 
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
+  threadDelay 300000000 -- wait five minutes
   i <- randomRIO (0, length links - 1)
   let action = insert $ Deviation (links !! i)
   runSqlPool action sqlConnPool
-  threadDelay 60000000 -- wait a minute
   feedFetcher sqlConnPool
 
 links =
