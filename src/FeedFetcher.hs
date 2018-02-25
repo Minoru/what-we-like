@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE RankNTypes        #-}
 
 module FeedFetcher (
   feedFetcher
@@ -10,13 +11,12 @@ import qualified Data.ByteString.Lazy.Char8 as LC8
 import Conduit
 import Control.Concurrent   (threadDelay)
 import Control.Monad        (void, forM_)
-import Control.Monad.Reader (ReaderT)
-import Database.Persist.Sql ((==.), ConnectionPool, Entity(..), SqlBackend,
-                             selectList, selectKeysList, insert, runSqlPool,
-                             fromSqlKey)
+import Database.Persist.Sql ((==.), ConnectionPool, Entity(..), selectList,
+                             selectKeysList, insert, runSqlPool, fromSqlKey)
 import Network.HTTP.Simple
 import Network.HTTP.Types.Status
 
+import Foundation
 import Model
 import FeedParser
 
@@ -42,8 +42,7 @@ fetchFeed url = do
     then return $ Right $ getResponseBody response
     else return $ Left status
 
-getDeviationId ::
-    Deviation -> ReaderT SqlBackend IO DeviationId
+getDeviationId :: Deviation -> DB DeviationId
 getDeviationId deviation = do
   let link = deviationLink deviation
   existingIds <- selectKeysList [DeviationLink ==. link] []
