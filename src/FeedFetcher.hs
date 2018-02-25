@@ -37,8 +37,9 @@ fetchFeed url = do
   then return $ Right $ getResponseBody response
   else return $ Left status
 
-storeDeviations :: [Deviation] -> IO ()
-storeDeviations deviations = undefined
+storeDeviations :: ConnectionPool -> [Deviation] -> IO ()
+storeDeviations sqlConnPool deviations =
+  void $ runSqlPool (mapM_ insert deviations) sqlConnPool
 
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
@@ -50,7 +51,7 @@ feedFetcher sqlConnPool = do
     case feed of
       Right feed -> do
         let deviations = parse feed
-        storeDeviations deviations
+        storeDeviations sqlConnPool deviations
 
       -- TODO: log the error
       Left status -> return ()
