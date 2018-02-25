@@ -11,3 +11,7 @@
 * Learn to filter out things that don't contain an image, like "Switching to
   HTTPS" announcement in my favourites
 * Decide what I'm going to do with robots: disllow them, welcome them, or what.
+* Do not fetch images that we already have
+* Save E-Tag and Last-Modified header values, send them with each request to
+  save bandwidth
+* Remove that `take 3` call to make the server truly useful :)
