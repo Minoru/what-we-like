@@ -19,4 +19,6 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
 
 Deviation
     link Text
+    title Text
+    author Text
     deriving Show

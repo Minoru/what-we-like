@@ -8,8 +8,8 @@
         <p>Листать можно скроллом, пробелом или кнопками вверх/вниз. По любой из картинок можно кликнуть — страничка соответствующего deviation откроется в новой вкладке.
         <p><b>Приятного просмотра!</b>
 
-    $forall Entity deviationId (Deviation link) <- deviations
+    $forall Entity deviationId (Deviation link title author) <- deviations
         <div .section>
             <div .intro .image-container>
                 <a href="#{link}" target="_blank">
-                    <img .max-fit data-adaptive-background src="/previews/#{fromSqlKey deviationId}.jpg" />
+                    <img .max-fit data-adaptive-background src="/previews/#{fromSqlKey deviationId}.jpg" alt="#{title} by #{author}" />
