@@ -49,8 +49,8 @@ feedFetcher sqlConnPool = do
   forM_ feeds $ \(Entity _ (RSSFeed _ url)) -> do
     feed <- fetchFeed url
     case feed of
-      Right feed -> do
-        let deviations = parse feed
+      Right feed' -> do
+        let deviations = parse feed'
         storeDeviations sqlConnPool deviations
 
       -- TODO: log the error
