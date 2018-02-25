@@ -7,9 +7,9 @@ module FeedFetcher (
 import qualified Data.Text as T
 
 import Control.Concurrent   (threadDelay)
-import System.Random        (randomRIO)
-import Database.Persist.Sql (ConnectionPool, insert, runSqlPool)
 import Control.Monad        (void)
+import Database.Persist.Sql (ConnectionPool, insert, runSqlPool)
+import System.Random        (randomRIO)
 
 import Model
 
