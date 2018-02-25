@@ -47,6 +47,8 @@ dependencies:
 - wai
 - foreign-store
 - random
+- http-client
+- http-client-tls
 
 # The library contains all of our application code. The executable
 # defined below is just a thin wrapper.

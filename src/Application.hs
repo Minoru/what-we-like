@@ -38,6 +38,8 @@ import System.Log.FastLogger                (defaultBufSize, newStdoutLoggerSet,
                                              toLogStr)
 import System.Directory                     (createDirectoryIfMissing)
 import Control.Concurrent                   (forkIO)
+import qualified Network.HTTP.Client as HTTPC
+import qualified Network.HTTP.Client.TLS as HTTPSC
 
 -- Import all relevant handler modules here.
 -- Don't forget to add new modules to your cabal file!
@@ -87,6 +89,11 @@ makeFoundation appSettings = do
     pool <- flip runLoggingT logFunc $ createSqlitePool
         (sqlDatabase $ appDatabaseConf appSettings)
         (sqlPoolSize $ appDatabaseConf appSettings)
+
+    -- Setup HTTP(S) connections manager
+    manager <- HTTPC.newManager
+      $ managerSetProxy noProxy HTTPSC.tlsManagerSettings
+    HTTPSC.setGlobalManager manager
 
     -- Perform database migration using our application's logging settings.
     runLoggingT (runSqlPool (runMigration migrateAll) pool) logFunc
