@@ -54,6 +54,6 @@ feedFetcher sqlConnPool = do
         storeDeviations sqlConnPool deviations
 
       -- TODO: log the error
-      Left status -> return ()
+      Left _status -> return ()
 
   feedFetcher sqlConnPool
