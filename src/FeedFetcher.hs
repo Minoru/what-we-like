@@ -7,18 +7,27 @@ module FeedFetcher (
 import qualified Data.Text as T
 
 import Control.Concurrent   (threadDelay)
-import Control.Monad        (void)
-import Database.Persist.Sql (ConnectionPool, insert, runSqlPool)
+import Control.Monad        (void, forM_)
+import Database.Persist.Sql (ConnectionPool, Entity(..), selectList, insert,
+                             runSqlPool)
 import System.Random        (randomRIO)
 
 import Model
 
+getFeedsList :: ConnectionPool -> IO [Entity RSSFeed]
+getFeedsList = runSqlPool (selectList [] [])
+
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
-  threadDelay 300000000 -- wait five minutes
-  i <- randomRIO (0, length links - 1)
-  let action = insert $ Deviation (links !! i) "title" "author"
-  void $ runSqlPool action sqlConnPool
+  threadDelay 30000000 -- wait thirty seconds
+
+  feeds <- getFeedsList sqlConnPool
+
+  forM_ feeds $ \_ -> do
+    i <- randomRIO (0, length links - 1)
+    let action = insert $ Deviation (links !! i) "title" "author"
+    void $ runSqlPool action sqlConnPool
+
   feedFetcher sqlConnPool
 
 links :: [T.Text]

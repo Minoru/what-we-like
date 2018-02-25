@@ -17,6 +17,11 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
     deriving Eq
     deriving Show
 
+RSSFeed
+    deviantName Text
+    feedUrl Text
+    deriving Show
+
 Deviation
     link Text
     title Text
