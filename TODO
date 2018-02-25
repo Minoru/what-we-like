@@ -15,3 +15,5 @@
 * Save E-Tag and Last-Modified header values, send them with each request to
   save bandwidth
 * Remove that `take 3` call to make the server truly useful :)
+* Make link field in Deviaiton table unique
+* Make both name and feed_url fields in rss_feed table unique
