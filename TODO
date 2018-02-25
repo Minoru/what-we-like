@@ -23,3 +23,4 @@
 * Add pagination
     * Decide if I want infinite scroll (load next image automatically) or
       manual pagination ("Next" button at the end of the page)
+* Look into testing this thing
