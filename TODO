@@ -24,3 +24,10 @@
     * Decide if I want infinite scroll (load next image automatically) or
       manual pagination ("Next" button at the end of the page)
 * Look into testing this thing
+* Rewrite fetcher so that it fetches everything first, downloads images second.
+  This is important because I want to keep the connection to
+  backend.deviantart.com open—this is both nicer to the server and faster for
+  us.
+* Sort new deviations by their preview URL so that images on the same preview
+  server are downloaded one after another—that should be both nicer to the
+  server and faster for us.
