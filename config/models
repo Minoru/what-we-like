@@ -17,7 +17,7 @@ Comment json -- Adding "json" causes ToJSON and FromJSON instances to be derived
     deriving Eq
     deriving Show
 
-RSSFeed
+RSSFeed sql=rss_feed
     deviantName Text
     feedUrl Text
     deriving Show
