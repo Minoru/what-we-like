@@ -30,16 +30,18 @@ fetchFeed :: T.Text -> IO (Either Status LC8.ByteString)
 fetchFeed url = do
   -- FIXME: parseRequest might throw, handle that
   request <- parseRequest $ T.unpack url
+  -- FIXME: apparently this one can throw too (i.e. if the service is
+  -- unreachable, which happened to me on flaky Wi-Fi); handle that
   response <- httpLBS (addUserAgentHeader request)
 
   let status = getResponseStatus response
   if status == ok200
-  then return $ Right $ getResponseBody response
-  else return $ Left status
+    then return $ Right $ getResponseBody response
+    else return $ Left status
 
-storeDeviations :: ConnectionPool -> [Deviation] -> IO ()
+storeDeviations :: ConnectionPool -> [(Deviation, T.Text)] -> IO ()
 storeDeviations sqlConnPool deviations =
-  void $ runSqlPool (mapM_ insert deviations) sqlConnPool
+  void $ runSqlPool (mapM_ (insert.fst) deviations) sqlConnPool
 
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
