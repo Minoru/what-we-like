@@ -10,8 +10,10 @@ import qualified Data.ByteString.Lazy.Char8 as LC8
 import Conduit
 import Control.Concurrent   (threadDelay)
 import Control.Monad        (void, forM_)
-import Database.Persist.Sql (ConnectionPool, Entity(..), selectList, insert,
-                             runSqlPool, fromSqlKey)
+import Control.Monad.Reader (ReaderT)
+import Database.Persist.Sql ((==.), ConnectionPool, Entity(..), SqlBackend,
+                             selectList, selectKeysList, insert, runSqlPool,
+                             fromSqlKey)
 import Network.HTTP.Simple
 import Network.HTTP.Types.Status
 
@@ -40,11 +42,23 @@ fetchFeed url = do
     then return $ Right $ getResponseBody response
     else return $ Left status
 
+getDeviationId ::
+    Deviation -> ReaderT SqlBackend IO DeviationId
+getDeviationId deviation = do
+  let link = deviationLink deviation
+  existingIds <- selectKeysList [DeviationLink ==. link] []
+  case existingIds of
+    [key] -> return key
+    []    -> insert deviation
+    -- FIXME: this case is impossible because we either have that item or we
+    -- don't; throw an error or something
+    _     -> undefined
+
 storeDeviations :: ConnectionPool -> [(Deviation, T.Text)] -> IO ()
 storeDeviations sqlConnPool deviations =
   forM_ deviations $ \(deviation, previewUrl) -> do
     void $ (flip runSqlPool) sqlConnPool $ do
-      deviationId <- insert deviation
+      deviationId <- getDeviationId deviation
       let imageNo = fromSqlKey deviationId
 
       -- FIXME: might throw, handle that; see similar situation above in
