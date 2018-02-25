@@ -7,10 +7,11 @@ module FeedFetcher (
 import qualified Data.Text as T
 import qualified Data.ByteString.Lazy.Char8 as LC8
 
+import Conduit
 import Control.Concurrent   (threadDelay)
 import Control.Monad        (void, forM_)
 import Database.Persist.Sql (ConnectionPool, Entity(..), selectList, insert,
-                             runSqlPool)
+                             runSqlPool, fromSqlKey)
 import Network.HTTP.Simple
 import Network.HTTP.Types.Status
 
@@ -41,7 +42,18 @@ fetchFeed url = do
 
 storeDeviations :: ConnectionPool -> [(Deviation, T.Text)] -> IO ()
 storeDeviations sqlConnPool deviations =
-  void $ runSqlPool (mapM_ (insert.fst) deviations) sqlConnPool
+  forM_ deviations $ \(deviation, previewUrl) -> do
+    void $ (flip runSqlPool) sqlConnPool $ do
+      deviationId <- insert deviation
+      let imageNo = fromSqlKey deviationId
+
+      -- FIXME: might throw, handle that; see similar situation above in
+      -- fetchFeed
+      request <- parseRequest $ T.unpack previewUrl
+      -- FIXME: might throw, handle that; see similar situation above in
+      -- fetchFeed
+      let filename = concat ["previews/", show imageNo, ".jpg"]
+      runResourceT $ httpSink request (const $ sinkFile filename)
 
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
