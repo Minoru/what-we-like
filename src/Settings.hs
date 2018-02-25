@@ -20,8 +20,11 @@ import Database.Persist.Sqlite     (SqliteConf)
 import Language.Haskell.TH.Syntax  (Exp, Name, Q)
 import Network.Wai.Handler.Warp    (HostPreference)
 import Yesod.Default.Config2       (applyEnvValue, configSettingsYml)
-import Yesod.Default.Util          (WidgetFileSettings, widgetFileNoReload,
-                                    widgetFileReload)
+import Yesod.Default.Util          (WidgetFileSettings(wfsHamletSettings),
+                                    widgetFileNoReload, widgetFileReload)
+import Text.Hamlet                 (HamletSettings(hamletNewlines),
+                                    defaultHamletSettings,
+                                    NewlineStyle(NoNewlines))
 
 -- | Runtime settings to configure this application. These settings can be
 -- loaded from various sources: defaults, environment variables, config files,
@@ -101,6 +104,10 @@ instance FromJSON AppSettings where
 -- https://github.com/yesodweb/yesod/wiki/Overriding-widgetFile
 widgetFileSettings :: WidgetFileSettings
 widgetFileSettings = def
+  { wfsHamletSettings = defaultHamletSettings
+    { hamletNewlines = NoNewlines
+    }
+  }
 
 -- | How static files should be combined.
 combineSettings :: CombineSettings
