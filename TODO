@@ -17,3 +17,5 @@
 * Remove that `take 3` call to make the server truly useful :)
 * Make link field in Deviaiton table unique
 * Make both name and feed_url fields in rss_feed table unique
+* Pull author's name from media:credit, but be careful—there are two entries,
+  one of which is an avatar (an HTTPS URL) and another is a name
