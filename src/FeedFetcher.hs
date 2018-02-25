@@ -4,9 +4,12 @@ module FeedFetcher (
   feedFetcher
 ) where
 
+import qualified Data.Text as T
+
 import Control.Concurrent (threadDelay)
 import System.Random (randomRIO)
 import Database.Persist.Sql (ConnectionPool, insert, runSqlPool)
+import Control.Monad (void)
 
 import Model
 
@@ -15,9 +18,10 @@ feedFetcher sqlConnPool = do
   threadDelay 300000000 -- wait five minutes
   i <- randomRIO (0, length links - 1)
   let action = insert $ Deviation (links !! i)
-  runSqlPool action sqlConnPool
+  void $ runSqlPool action sqlConnPool
   feedFetcher sqlConnPool
 
+links :: [T.Text]
 links =
   [ "https://pre00.deviantart.net/9d39/th/pre/f/2018/046/8/a/princess_and_cannibal_by_irenetall-dc393kz.jpg"
   , "https://pre00.deviantart.net/dd6a/th/pre/i/2018/007/2/7/bust_sketch_s_by_katherine_olenic-dbz8fjy.jpg"
