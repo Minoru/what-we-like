@@ -27,3 +27,4 @@
 * Sort new deviations by their preview URL so that images on the same preview
   server are downloaded one after another—that should be both nicer to the
   server and faster for us.
+* Set maximum possible expiration dates for preview images we serve
