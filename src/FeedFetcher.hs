@@ -70,11 +70,10 @@ storeDeviations sqlConnPool deviations =
 
 feedFetcher :: ConnectionPool -> IO ()
 feedFetcher sqlConnPool = do
-  -- This delay should be set to five minutes, because that's the setting in
-  -- DeviantArt's cache-control at the moment
+  -- Five minutes is the setting in DeviantArt's cache-control at the moment.
   -- TODO: actually gather cache-control headers from responses and sleep for
   -- the *longest* duration specified in them
-  threadDelay 30000000 -- wait thirty seconds
+  threadDelay $ 5 * 60 * 1000 * 1000
 
   feeds <- getFeedsList sqlConnPool
   forM_ feeds $ \(Entity _ (RSSFeed _ url)) -> do
