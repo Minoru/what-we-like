@@ -12,7 +12,6 @@
   HTTPS" announcement in my favourites
 * Decide what I'm going to do with robots: disllow them, welcome them, or what.
 * Do not fetch images that we already have
-* Remove that `take 3` call to make the server truly useful :)
 * Make link field in Deviaiton table unique
 * Make both name and feed_url fields in rss_feed table unique
 * Pull author's name from media:credit, but be careful—there are two entries,

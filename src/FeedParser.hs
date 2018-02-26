@@ -61,7 +61,7 @@ parse source =
         (RSSFeed _) ->
           let items = getFeedItems feed
           in  case (sequence $ filter isJust $ map extractDeviation items) of
-                Just list -> take 3 $ list
+                Just list -> list
                 Nothing -> []
 
         _ -> []
