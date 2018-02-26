@@ -24,7 +24,7 @@ data FileForm = FileForm
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
 getHomeR = do
-    deviations <- runDB $ selectList [] [Asc DeviationId]
+    deviations <- runDB $ selectList [] [Desc DeviationId]
     defaultLayout $ do
         setTitle "What We Like"
         $(widgetFile "homepage")

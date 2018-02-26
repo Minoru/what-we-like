@@ -17,7 +17,6 @@
 * Make both name and feed_url fields in rss_feed table unique
 * Pull author's name from media:credit, but be careful—there are two entries,
   one of which is an avatar (an HTTPS URL) and another is a name
-* Show images in reverse order (latest first)
 * Add pagination
     * Decide if I want infinite scroll (load next image automatically) or
       manual pagination ("Next" button at the end of the page)
