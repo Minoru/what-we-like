@@ -8,3 +8,4 @@
 /robots.txt RobotsR GET
 
 / HomeR GET
+/page/#{Int} PageR GET

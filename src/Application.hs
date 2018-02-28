@@ -45,6 +45,7 @@ import qualified Network.HTTP.Client.TLS as HTTPSC
 -- Don't forget to add new modules to your cabal file!
 import Handler.Common
 import Handler.Home
+import Handler.Page
 
 import FeedFetcher
 

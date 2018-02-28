@@ -1,0 +1,4 @@
+<!-- TODO: make that style a class; .service-section maybe? -->
+<div .section .text-center style="background-color: #c4a9fb;">
+    <div .intro>
+        <a .btn .btn-primary href="@{PageR next}">Смотреть ещё
