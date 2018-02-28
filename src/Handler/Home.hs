@@ -8,7 +8,6 @@ module Handler.Home where
 import Import
 
 import Database.Persist.Sql (fromSqlKey)
-import Yesod.Paginator      (selectPaginated)
 
 -- Define our data that will be used for creating the form.
 data FileForm = FileForm
@@ -25,7 +24,7 @@ data FileForm = FileForm
 -- inclined, or create a single monolithic file.
 getHomeR :: Handler Html
 getHomeR = do
-    (deviations, pagination) <- runDB $ selectPaginated 10 [] [Desc DeviationId]
+    deviations <- runDB $ selectList [] [Desc DeviationId]
     defaultLayout $ do
         setTitle "What We Like"
         $(widgetFile "homepage")
