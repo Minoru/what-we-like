@@ -6,6 +6,7 @@ module Handler.Page where
 
 import Import
 
+import qualified Data.Text as T
 
 import Database.Persist.Sql (fromSqlKey)
 

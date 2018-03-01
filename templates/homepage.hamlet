@@ -12,6 +12,6 @@
         <div .section>
             <div .intro .image-container>
                 <a href="#{link}" target="_blank">
-                    <img .max-fit data-adaptive-background src="/previews/#{fromSqlKey deviationId}.jpg" alt="#{title} by #{author}" />
+                    <img .max-fit data-adaptive-background src="@{PreviewsR $ StaticRoute [T.pack $ (show $ fromSqlKey deviationId) ++ ".jpg"] []}" alt="#{title} by #{author}" />
 
     ^{paginationWidget}
